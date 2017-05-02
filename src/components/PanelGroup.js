@@ -1,7 +1,7 @@
 import React from "react";
 import Panel from "./elements/Panel";
 import Pagination from "./Pagination";
-import { getPage, sortPhotos } from "../helpers/helpers";
+import { getPage, sortPhotos, searchPhotos } from "../helpers/helpers";
 
 class PanelGroup extends React.Component {
   constructor() {
@@ -18,7 +18,8 @@ class PanelGroup extends React.Component {
   };
 
   render() {
-    const sortedPhotos = sortPhotos(this.props.photos, this.props.sort);
+    const searchedPhotos = searchPhotos(this.props.photos, this.props.searchValue);
+    const sortedPhotos = sortPhotos(searchedPhotos, this.props.sort);
     const panels = sortedPhotos.map(photo => {
       const photoData = {};
       photoData.src = photo.images.thumbnail.url;

@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import Select from "./elements/Select";
 import InputGroup from "./elements/InputGroup";
 import Button from "./elements/Button";
+import Input from './elements/Input'
 
 class Form extends Component {
   render() {
-    const { photos, filterType, onChange, options, sort, onClick } = this.props;
+    const { photos, filterType, onChange, options, sort, onClick, inputValue, onChangeSearch } = this.props;
 
     return (
       <form>
@@ -15,6 +16,13 @@ class Form extends Component {
             value={filterType}
             options={options}
             onChange={onChange}
+          />
+        </InputGroup>
+        <InputGroup name="searchType">
+          <Input
+            name="searchValue"
+            value={inputValue}
+            onChange={onChangeSearch}
           />
         </InputGroup>
         <InputGroup name="sortType">

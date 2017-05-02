@@ -14,7 +14,8 @@ class MainBody extends Component {
       sort: {
         type: "created_time",
         direction: "desc"
-      }
+      },
+      inputValue: ""
     };
   }
 
@@ -36,6 +37,12 @@ class MainBody extends Component {
     })
   }
 
+  onChangeSearch = e => {
+    this.setState({
+      inputValue: e.target.value
+    })
+  }
+
 
 
   render() {
@@ -48,8 +55,10 @@ class MainBody extends Component {
           options={getOptions(photos)}
           onClick={this.onClickSortHandler}
           sort={this.state.sort}
+          inputValue={this.state.inputValue}
+          onChangeSearch={this.onChangeSearch}
         />
-        <PanelGroup sort={this.state.sort} photos={this.state.photos} />
+        <PanelGroup sort={this.state.sort} photos={this.state.photos} searchValue={this.state.inputValue} />
       </div>
     );
   }

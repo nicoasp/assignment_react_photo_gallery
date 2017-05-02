@@ -44,3 +44,18 @@ export function sortPhotos(photos, sortObject) {
     }
   });
 }
+
+export function searchPhotos(photos, searchValue) {
+  let regex = new RegExp(searchValue, 'i');
+  return photos.filter((photo) => {
+    if (photo.caption) {
+      return (regex.exec(photo.caption.text) || regex.exec(photo.user.username))
+    } else {
+      return regex.exec(photo.user.username)
+    }    
+  })
+}
+
+
+
+
