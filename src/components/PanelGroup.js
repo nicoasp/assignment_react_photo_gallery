@@ -2,7 +2,6 @@ import React from "react";
 import Panel from "./elements/Panel";
 
 const PanelGroup = photos => {
-	console.log(photos);
   const panels = photos.photos.map(photo => {
     const photoData = {};
     photoData.src = photo.images.thumbnail.url;
@@ -17,11 +16,10 @@ const PanelGroup = photos => {
   });
 
   return (
-  	<div className="row">
-  		{panels}
-  	</div>
-  )
+    <div className="row">
+      {panels}
+    </div>
+  );
 };
 
 export default PanelGroup;
-
