@@ -23,4 +23,15 @@ export function getPage(buttonText, currentPage) {
   } else {
     return buttonText;
   }
+} 
+
+export function sortPhotos(photos, sortObject) {
+  return photos.sort((a, b) => {
+    let sortBy = sortObject.type;
+    if (sortObject.direction === "asc") {
+      return a[sortBy] - b[sortBy];
+    } else {
+      return b[sortBy] - a[sortBy];
+    }
+  })
 }

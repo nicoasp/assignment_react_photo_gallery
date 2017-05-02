@@ -1,7 +1,7 @@
 import React from "react";
 import Panel from "./elements/Panel";
 import Pagination from "./Pagination";
-import { getPage } from "../helpers/helpers";
+import { getPage, sortPhotos } from "../helpers/helpers";
 
 class PanelGroup extends React.Component {
   constructor() {
@@ -18,14 +18,16 @@ class PanelGroup extends React.Component {
   };
 
   render() {
-    const panels = this.props.photos.map(photo => {
+    console.log(this.props.sort);
+    const sortedPhotos = sortPhotos(this.props.photos, this.props.sort);
+    const panels = sortedPhotos.map(photo => {
       const photoData = {};
       photoData.src = photo.images.thumbnail.url;
       photoData.username = photo.user.username;
       photoData.comments = photo.comments.count;
       photoData.likes = photo.likes.count;
       photoData.link = photo.link;
-      photoData.createdTime = photo.created_time;
+      photoData.createdTime = new Date(photo.created_time * 1000).toString();
       photoData.filter = photo.filter;
       photoData.tags = photo.tags.join(", ");
       return <Panel photoData={photoData} key={photoData.src} />;

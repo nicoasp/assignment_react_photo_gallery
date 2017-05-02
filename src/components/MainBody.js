@@ -10,7 +10,11 @@ class MainBody extends Component {
     super();
     this.state = {
       photos: photos,
-      filterType: "All"
+      filterType: "All",
+      sort: {
+        type: "created_time",
+        direction: "desc"
+      }
     };
   }
 
@@ -21,6 +25,19 @@ class MainBody extends Component {
     });
   };
 
+  onClickSortHandler = e => {
+    e.preventDefault();
+    let newDirection = this.state.sort.direction === "desc" ? "asc" : "desc";
+    this.setState({
+      sort: {
+        type: e.target.name,
+        direction: newDirection
+      }
+    })
+  }
+
+
+
   render() {
     return (
       <div className="MainBody container">
@@ -29,8 +46,10 @@ class MainBody extends Component {
           filterType={this.state.filterType}
           onChange={this.onChangeInput}
           options={getOptions(photos)}
+          onClick={this.onClickSortHandler}
+          sort={this.state.sort}
         />
-        <PanelGroup photos={this.state.photos} />
+        <PanelGroup sort={this.state.sort} photos={this.state.photos} />
       </div>
     );
   }
