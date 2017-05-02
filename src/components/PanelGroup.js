@@ -18,7 +18,6 @@ class PanelGroup extends React.Component {
   };
 
   render() {
-    console.log(this.props.sort);
     const sortedPhotos = sortPhotos(this.props.photos, this.props.sort);
     const panels = sortedPhotos.map(photo => {
       const photoData = {};
@@ -29,7 +28,8 @@ class PanelGroup extends React.Component {
       photoData.link = photo.link;
       photoData.createdTime = new Date(photo.created_time * 1000).toString();
       photoData.filter = photo.filter;
-      photoData.tags = photo.tags.join(", ");
+      photoData.caption = photo.caption ? photo.caption.text : null;
+
       return <Panel photoData={photoData} key={photoData.src} />;
     });
 

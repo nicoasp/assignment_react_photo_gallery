@@ -9,20 +9,20 @@ const Panel = ({ photoData }) => {
     link,
     createdTime,
     filter,
-    tags
+    caption
   } = photoData;
 
   return (
-    <div className="col-sm-3">
+    <div className="col-sm-4">
       <div className="thumbnail">
         <a href={link}><img src={src} alt="Hello hello" /></a>
         <div className="caption">
           <a href={`http://instagram@${username}`}><h3>{username}</h3></a>
           <p>Comments: {comments}</p>
           <p>Likes: {likes}</p>
-          <p>Created at: {createdTime}</p>
+          <p>{createdTime}</p>
           <p>Filter: {filter}</p>
-          <p>Hashtags: {tags}</p>
+          <p>{caption}</p>
         </div>
       </div>
     </div>

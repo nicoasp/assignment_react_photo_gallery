@@ -24,6 +24,20 @@ class Form extends Component {
             onClick={onClick}
           />
         </InputGroup>
+        <InputGroup name="sortType">
+          <Button
+            name="likes count"
+            buttonText="Sort by Likes"
+            onClick={onClick}
+          />
+        </InputGroup>
+        <InputGroup name="sortType">
+          <Button
+            name="comments count"
+            buttonText="Sort by Comments"
+            onClick={onClick}
+          />
+        </InputGroup>
         <p>{photos.length} Results</p>
       </form>
     );

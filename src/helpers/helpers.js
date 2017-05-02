@@ -23,15 +23,24 @@ export function getPage(buttonText, currentPage) {
   } else {
     return buttonText;
   }
-} 
+}
 
 export function sortPhotos(photos, sortObject) {
   return photos.sort((a, b) => {
     let sortBy = sortObject.type;
-    if (sortObject.direction === "asc") {
-      return a[sortBy] - b[sortBy];
+    sortBy = sortBy.split(" ");
+    if (sortBy.length === 1) {
+      if (sortObject.direction === "asc") {
+        return a[sortBy[0]] - b[sortBy[0]];
+      } else {
+        return b[sortBy[0]] - a[sortBy[0]];
+      }
     } else {
-      return b[sortBy] - a[sortBy];
+      if (sortObject.direction === "asc") {
+        return a[sortBy[0]][sortBy[1]] - b[sortBy[0]][sortBy[1]];
+      } else {
+        return b[sortBy[0]][sortBy[1]] - a[sortBy[0]][sortBy[1]];
+      }
     }
-  })
+  });
 }
