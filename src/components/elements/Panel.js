@@ -13,7 +13,7 @@ const Panel = ({ photoData }) => {
   } = photoData;
 
   return (
-    <div className="col-sm-4">
+    <div className="col-sm-3">
       <div className="thumbnail">
         <a href={link}><img src={src} alt="Hello hello" /></a>
         <div className="caption">
