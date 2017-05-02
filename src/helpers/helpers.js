@@ -14,3 +14,13 @@ export function filterPhotos(photos, filterType) {
     return photo.filter === filterType;
   });
 }
+
+export function getPage(buttonText, currentPage) {
+  if (buttonText === "Previous") {
+    return currentPage - 1;
+  } else if (buttonText === "Next") {
+    return currentPage + 1;
+  } else {
+    return buttonText;
+  }
+}

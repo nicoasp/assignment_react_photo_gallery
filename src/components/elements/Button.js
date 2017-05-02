@@ -1,11 +1,17 @@
-import React from 'react'
+import React from "react";
 
-const Button = ({buttonType, buttonText}) => (
-  <button className={`btn btn-${buttonType}`}>{buttonText}</button>
-)
+const Button = ({ buttonType, buttonText, onClick }) => (
+  <button
+    className={`btn btn-${buttonType}`}
+    onClick={onClick}
+    name={buttonText}
+  >
+    {buttonText}
+  </button>
+);
 
 Button.defaultProps = {
-	buttonType: "default"
-}
+  buttonType: "default"
+};
 
-export default Button
+export default Button;
