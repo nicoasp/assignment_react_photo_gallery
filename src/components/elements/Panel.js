@@ -1,12 +1,32 @@
-<div class="row">
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="..." alt="...">
-      <div class="caption">
-        <h3>Thumbnail label</h3>
-        <p>...</p>
-        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+import React from "react";
+
+const Panel = ({ photoData }) => {
+  const {
+    src,
+    username,
+    comments,
+    likes,
+    link,
+    createdTime,
+    filter,
+    tags
+  } = photoData;
+
+  return (
+    <div className="col-sm-3">
+      <div className="thumbnail">
+        <a href="link"><img src={src} /></a>
+        <div className="caption">
+          <a href={`http://instagram@${username}`}><h3>{username}</h3></a>
+          <p>Comments: {comments}</p>
+          <p>Likes: {likes}</p>
+          <p>Created at: {createdTime}</p>
+          <p>Filter: {filter}</p>
+          <p>Hashtags: {tags}</p>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+  );
+};
+
+export default Panel;
