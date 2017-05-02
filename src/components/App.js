@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../App.css";
+import MainBody from './MainBody';
 
 class App extends Component {
   render() {
@@ -8,7 +9,7 @@ class App extends Component {
         <div className="App-header">
           <h2>Welcome to Photo Gallery</h2>
         </div>
-        <p className="App-intro" />
+        <MainBody />
       </div>
     );
   }
